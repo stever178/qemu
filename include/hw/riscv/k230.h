@@ -1,7 +1,10 @@
 /*
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ *
  * QEMU RISC-V Virt Board Compatible with kendryte K230 SDK
  *
  * Copyright (c) 2025 Chao Liu <chao.liu@zevorn.cn>
+ * Copyright (c) 2025 Shengjie Lin <2874146120@qq.com>
  *
  * Provides a board compatible with the kendryte K230 SDK
  *
@@ -22,6 +25,12 @@
 #ifndef HW_K230_H
 #define HW_K230_H
 
+#include "hw/riscv/riscv_hart.h"
+#include "hw/riscv/k230_cpu.h"
+#include "hw/gpio/sifive_gpio.h"
+/* #include "hw/misc/k230_rmu.h" */
+#include "hw/boards.h"
+
 #define TYPE_RISCV_K230_SOC "riscv.k230.soc"
 #define RISCV_K230_SOC(obj) \
     OBJECT_CHECK(K230SoCState, (obj), TYPE_RISCV_K230_SOC)
@@ -35,7 +44,8 @@ typedef struct K230SoCState {
     RISCVHartArrayState c908v_cpus;
 
     DeviceState *uart[5];
-    DeviceState *gpio;
+    SIFIVEGPIOState gpio0;
+    SIFIVEGPIOState gpio1;
     DeviceState *clint;
     DeviceState *plic;
 } K230SoCState;
@@ -101,13 +111,49 @@ enum {
     K230_DEV_GPIO0,
     K230_DEV_GPIO1,
     K230_DEV_ADC,
+    K230_DEV_CODEC,
+    K230_DEV_AUDIO,
     K230_DEV_USB,
-    K230_DEV_LSADC,
-    K230_DEV_SPI,
     K230_DEV_SD,
-    K230_DEV_CLINT,
+    K230_DEV_SPI_QOPI,
+    K230_DEV_SPI_OPI,
+    K230_DEV_HI_SYS_CONFIG,
+    K230_DEV_DDRC_CONFIG,
+    K230_DEV_FLASH,
+    K230_DEV_CLINT, /* fixme */
     K230_DEV_PLIC,
-    K230_DEV_DRAM,
 };
+
+enum {
+    K230_UART0_IRQ  = 0,
+    K230_UART1_IRQ  = 1,
+    K230_UART2_IRQ  = 2,
+    K230_UART3_IRQ  = 3,
+    K230_UART4_IRQ  = 4,
+    K230_PWM0_IRQ   = 10,
+    K230_PWM1_IRQ   = 11,
+    K230_PWM2_IRQ   = 12,
+    K230_PWM3_IRQ   = 13,
+    K230_PWM4_IRQ   = 14,
+    K230_PWM5_IRQ   = 15,
+    K230_GPIO0_IRQ0 = 16
+};
+
+#define K230_UART_IRQS 5
+#define K230_GPIO_IRQS 64
+
+#define K230_LFCLK_DEFAULT_FREQ 24000000  /* fixme */
+
+#define K230_PLIC_HART_CONFIG "MS,MS"
+#define K230_PLIC_NUM_SOURCES 208
+#define K230_PLIC_NUM_PRIORITIES 7  /* fixme */
+
+#define K230_PLIC_PRIORITY_BASE 0x00
+#define K230_PLIC_PENDING_BASE 0x1000
+#define K230_PLIC_ENABLE_BASE 0x2000
+#define K230_PLIC_ENABLE_STRIDE 0x80
+
+#define K230_PLIC_CONTEXT_BASE 0x200000
+#define K230_PLIC_CONTEXT_STRIDE 0x1000
 
 #endif
