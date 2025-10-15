@@ -45,68 +45,68 @@
 #include "system/system.h"
 
 static const MemMapEntry k230_memmap[] = {
-    [K230_DEV_DDRC] =            { 0x00000000,   0x80000000 },
-    [K230_DEV_KPU_L2_CACHE] =    { 0x80000000,     0x200000 },
-    [K230_DEV_SRAM] =            { 0x80200000,     0x200000 },
-    [K230_DEV_KPU_CFG] =         { 0x80400000,        0x800 },
-    [K230_DEV_FFT] =             { 0x80400800,        0x400 },
-    [K230_DEV_AI_2D_ENGINE] =    { 0x80400C00,        0x400 },
-    [K230_DEV_GSDMA] =           { 0x80800000,       0x4000 },
-    [K230_DEV_DMA] =             { 0x80804000,       0x4000 },
-    [K230_DEV_DECOMP_GZIP] =     { 0x80808000,       0x4000 },
-    [K230_DEV_NON_AI_2D] =       { 0x8080C000,       0x4000 },
-    [K230_DEV_ISP] =             { 0x90000000,       0x8000 }, 
-    [K230_DEV_DEWARP] =          { 0x90008000,       0x1000 },
-    [K230_DEV_RX_CSI] =          { 0x90009000,       0x2000 },
-    [K230_DEV_H264] =            { 0x90400000,      0x10000 },
-    [K230_DEV_2P5D] =            { 0x90800000,      0x40000 },
-    [K230_DEV_VO] =              { 0x90840000,      0x10000 },
-    [K230_DEV_VO_CFG] =          { 0x90850000,       0x1000 },
-    [K230_DEV_3D_ENGINE] =       { 0x90A00000,        0x800 },
-    [K230_DEV_PMU] =             { 0x91000000,        0xC00 },
-    [K230_DEV_RTC] =             { 0x91000C00,        0x400 },
-    [K230_DEV_CMU] =             { 0x91100000,       0x1000 },
-    [K230_DEV_RMU] =             { 0x91101000,       0x1000 },
-    [K230_DEV_BOOT] =            { 0x91102000,       0x1000 },
-    [K230_DEV_PWR] =             { 0x91103000,       0x1000 },
-    [K230_DEV_MAILBOX] =         { 0x91104000,       0x1000 },
-    [K230_DEV_IOMUX] =           { 0x91105000,        0x800 },
-    [K230_DEV_TIMER] =           { 0x91105800,        0x800 },
-    [K230_DEV_WDT0] =            { 0x91106000,        0x800 },
-    [K230_DEV_WDT1] =            { 0x91106800,        0x800 },
-    [K230_DEV_TS] =              { 0x91107000,        0x800 },
-    [K230_DEV_HDI] =             { 0x91107800,        0x800 },
-    [K230_DEV_STC] =             { 0x91108000,       0x1000 },
-    [K230_DEV_BOOTROM] =         { 0x91200000,      0x10000 },
-    [K230_DEV_SECURITY] =        { 0x91210000,       0x8000 },
-    [K230_DEV_UART0] =           { 0x91400000,       0x1000 },
-    [K230_DEV_UART1] =           { 0x91401000,       0x1000 },
-    [K230_DEV_UART2] =           { 0x91402000,       0x1000 },
-    [K230_DEV_UART3] =           { 0x91403000,       0x1000 },
-    [K230_DEV_UART4] =           { 0x91404000,       0x1000 },
-    [K230_DEV_I2C0] =            { 0x91405000,       0x1000 },
-    [K230_DEV_I2C1] =            { 0x91406000,       0x1000 },
-    [K230_DEV_I2C2] =            { 0x91407000,       0x1000 },
-    [K230_DEV_I2C3] =            { 0x91408000,       0x1000 },
-    [K230_DEV_I2C4] =            { 0x91409000,       0x1000 },
-    [K230_DEV_PWM] =             { 0x9140A000,       0x1000 },
-    [K230_DEV_GPIO0] =           { 0x9140B000,       0x1000 },
-    [K230_DEV_GPIO1] =           { 0x9140C000,       0x1000 },
-    [K230_DEV_ADC] =             { 0x9140D000,       0x1000 },
-    [K230_DEV_CODEC] =           { 0x9140E000,       0x1000 },
-    [K230_DEV_I2S] =             { 0x9140F000,       0x1000 },
-    [K230_DEV_USB0] =            { 0x91500000,      0x40000 },
-    [K230_DEV_USB1] =            { 0x91540000,      0x40000 },
-    [K230_DEV_SD0] =             { 0x91580000,       0x1000 },
-    [K230_DEV_SD1] =             { 0x91581000,       0x1000 },
-    [K230_DEV_QSPI0] =           { 0x91582000,       0x1000 },
-    [K230_DEV_QSPI1] =           { 0x91583000,       0x1000 },
-    [K230_DEV_SPI] =             { 0x91584000,       0x1000 },
-    [K230_DEV_HI_SYS_CONFIG] =   { 0x91585000,        0x400 },
-    [K230_DEV_DDRC_CONFIG] =     { 0x98000000,    0x2000000 },
-    [K230_DEV_FLASH] =           { 0xC0000000,    0x8000000 },
-    [K230_DEV_PLIC] =            { 0xf0000000,     0x400000 },
-    [K230_DEV_CLINT] =           { 0xf0400000,     0x400000 },
+    [K230_DEV_DDRC] =         { 0x00000000, 0x80000000 },
+    [K230_DEV_KPU_L2_CACHE] = { 0x80000000, 0x00200000 },
+    [K230_DEV_SRAM] =         { 0x80200000, 0x00200000 },
+    [K230_DEV_KPU_CFG] =      { 0x80400000, 0x00000800 },
+    [K230_DEV_FFT] =          { 0x80400800, 0x00000400 },
+    [K230_DEV_AI_2D_ENGINE] = { 0x80400C00, 0x00000800 },
+    [K230_DEV_GSDMA] =        { 0x80800000, 0x00004000 },
+    [K230_DEV_DMA] =          { 0x80804000, 0x00004000 },
+    [K230_DEV_DECOMP_GZIP] =  { 0x80808000, 0x00004000 },
+    [K230_DEV_NON_AI_2D] =    { 0x8080C000, 0x00004000 },
+    [K230_DEV_ISP] =          { 0x90000000, 0x00008000 },
+    [K230_DEV_DEWARP] =       { 0x90008000, 0x00001000 },
+    [K230_DEV_RX_CSI] =       { 0x90009000, 0x00002000 },
+    [K230_DEV_H264] =         { 0x90400000, 0x00010000 },
+    [K230_DEV_2P5D] =         { 0x90800000, 0x00040000 },
+    [K230_DEV_VO] =           { 0x90840000, 0x00010000 },
+    [K230_DEV_VO_CFG] =       { 0x90850000, 0x00001000 },
+    [K230_DEV_3D_ENGINE] =    { 0x90A00000, 0x00000800 },
+    [K230_DEV_PMU] =          { 0x91000000, 0x00000C00 },
+    [K230_DEV_RTC] =          { 0x91000C00, 0x00000400 },
+    [K230_DEV_CMU] =          { 0x91100000, 0x00001000 },
+    [K230_DEV_RMU] =          { 0x91101000, 0x00001000 },
+    [K230_DEV_BOOT] =         { 0x91102000, 0x00001000 },
+    [K230_DEV_PWR] =          { 0x91103000, 0x00001000 },
+    [K230_DEV_MAILBOX] =      { 0x91104000, 0x00001000 },
+    [K230_DEV_IOMUX] =        { 0x91105000, 0x00000800 },
+    [K230_DEV_TIMER] =        { 0x91105800, 0x00000800 },
+    [K230_DEV_WDT0] =         { 0x91106000, 0x00000800 },
+    [K230_DEV_WDT1] =         { 0x91106800, 0x00000800 },
+    [K230_DEV_TS] =           { 0x91107000, 0x00000800 },
+    [K230_DEV_HDI] =          { 0x91107800, 0x00000800 },
+    [K230_DEV_STC] =          { 0x91108000, 0x00000800 },
+    [K230_DEV_BOOTROM] =      { 0x91200000, 0x00010000 },
+    [K230_DEV_SECURITY] =     { 0x91210000, 0x00008000 },
+    [K230_DEV_UART0] =        { 0x91400000, 0x00001000 },
+    [K230_DEV_UART1] =        { 0x91401000, 0x00001000 },
+    [K230_DEV_UART2] =        { 0x91402000, 0x00001000 },
+    [K230_DEV_UART3] =        { 0x91403000, 0x00001000 },
+    [K230_DEV_UART4] =        { 0x91404000, 0x00001000 },
+    [K230_DEV_I2C0] =         { 0x91405000, 0x00001000 },
+    [K230_DEV_I2C1] =         { 0x91406000, 0x00001000 },
+    [K230_DEV_I2C2] =         { 0x91407000, 0x00001000 },
+    [K230_DEV_I2C3] =         { 0x91408000, 0x00001000 },
+    [K230_DEV_I2C4] =         { 0x91409000, 0x00001000 },
+    [K230_DEV_PWM] =          { 0x9140A000, 0x00001000 },
+    [K230_DEV_GPIO0] =        { 0x9140B000, 0x00001000 },
+    [K230_DEV_GPIO1] =        { 0x9140C000, 0x00001000 },
+    [K230_DEV_ADC] =          { 0x9140D000, 0x00001000 },
+    [K230_DEV_CODEC] =        { 0x9140E000, 0x00001000 },
+    [K230_DEV_I2S] =          { 0x9140F000, 0x00001000 },
+    [K230_DEV_USB0] =         { 0x91500000, 0x00010000 },
+    [K230_DEV_USB1] =         { 0x91540000, 0x00010000 },
+    [K230_DEV_SD0] =          { 0x91580000, 0x00001000 },
+    [K230_DEV_SD1] =          { 0x91581000, 0x00001000 },
+    [K230_DEV_QSPI0] =        { 0x91582000, 0x00001000 },
+    [K230_DEV_QSPI1] =        { 0x91583000, 0x00001000 },
+    [K230_DEV_SPI] =          { 0x91584000, 0x00001000 },
+    [K230_DEV_HI_SYS_CFG] =   { 0x91585000, 0x00000400 },
+    [K230_DEV_DDRC_CFG] =     { 0x98000000, 0x02000000 },
+    [K230_DEV_FLASH] =        { 0xC0000000, 0x08000000 },
+    [K230_DEV_PLIC] =         { 0xF0000000, 0x00400000 },
+    [K230_DEV_CLINT] =        { 0xF0400000, 0x00400000 },
 };
 
 static void create_fdt(K230State *s, const MemMapEntry *memmap)
@@ -221,7 +221,7 @@ static void create_fdt(K230State *s, const MemMapEntry *memmap)
                                   "clock-frequency",
                                   K230_CPUCLK_FREQ);
 
-            riscv_isa_write_fdt(&s->soc.c908_cpus.harts[0], fdt, nodename);
+            riscv_isa_write_fdt(&s->soc.c908_cpu.harts[0], fdt, nodename);
         } else {
             qemu_fdt_setprop_string(fdt, nodename,
                                     "riscv,isa",
@@ -231,7 +231,7 @@ static void create_fdt(K230State *s, const MemMapEntry *memmap)
             qemu_fdt_setprop_cell(fdt, nodename,
                                   "clock-frequency",
                                   K230_CPUCLK_FREQ);
-            riscv_isa_write_fdt(&s->soc.c908v_cpus.harts[0],
+            riscv_isa_write_fdt(&s->soc.c908v_cpu.harts[0],
                                 fdt, nodename);
         }
 
@@ -391,12 +391,12 @@ static void k230_machine_init(MachineState *machine)
         create_fdt(s, k230_memmap);
     }
 
-    firmware_name = riscv_default_firmware_name(&s->soc.c908_cpus);
+    firmware_name = riscv_default_firmware_name(&s->soc.c908_cpu);
     firmware_end_addr = riscv_find_and_load_firmware(
         machine, firmware_name,
         &start_addr, NULL);
 
-    riscv_boot_info_init(&boot_info, &s->soc.c908_cpus);
+    riscv_boot_info_init(&boot_info, &s->soc.c908_cpu);
     if (machine->kernel_filename) {
         kernel_start_addr = riscv_calc_kernel_start_addr(&boot_info,
                                                          firmware_end_addr);
@@ -416,26 +416,21 @@ static void k230_machine_init(MachineState *machine)
                                            machine, &boot_info);
     riscv_load_fdt(fdt_load_addr, machine->fdt);
 
-    /* todo */
     /* Mask ROM reset vector */
     uint32_t reset_vec[] = {
-        /* 0x00000000: lui    t0, 0x01              */ 0x000012b7,
-        /* 0x00000004: slli   t0, t0, 15            */ 0x00f29293,
-        /* 0x91200004: jr     t0                    */ 0x00028067,
-
-        // /* 0x91200000: auipc  t0, 0x0               */ 0x00000297,
-        // /* 0x91200004: addi   t0, t0, 36 # <trap>   */ 0x02428293,
-        // /* 0x91200008: csrw   mtvec, t0             */ 0x30529073,
-        // /* 0x9120000c: csrr   a0, mhartid           */ 0xf1402573,
-        // /* 0x91200010: beqz   a0, 912000018 <entry> */ 0x00050463,
-        // /* loop:                                    */
-        // /* 0x91200014: j      91200014 # <loop>     */ 0x0000006f,
-        // /* entry:                                   */
-        // /* 0x91200018: addiw  t0, zero, 1           */ 0x0010029b,
-        // /* 0x9120001C: slli   t0, t0, 0x1b          */ 0x01b29293,
-        // /* 0x91200020: jr     t0 # uboot 0x80000000 */ 0x00028067,
-        // /* trap:                                    */
-        // /* 0x91200024: j      91200024 # <trap>     */ 0x0000006f,
+        /* 0x91200000: auipc  t0, 0x0              */ 0x00000297,
+        /* 0x91200004: addi   t0, t0, 36 # <trap>  */ 0x02428293,
+        /* 0x91200008: csrw   mtvec, t0            */ 0x30529073,
+        /* 0x9120000C: csrr   a0, mhartid          */ 0xf1402573,
+        /* 0x91200010: beqz   a0, 9120000C <entry> */ 0x00050463,
+        /* loop:                                   */
+        /* 0x91200014: j      91200014 # <loop>    */ 0x0000006f,
+        /* entry:                                  */
+        /* 0x91200018: addiw  t0, zero, 1          */ 0x0010029b,
+        /* 0x9120001C: slli   t0, t0, 0x1b         */ 0x01b29293,
+        /* 0x91200020: jr     t0 # uboot 0x8000000 */ 0x00028067,
+        /* trap:                                   */
+        /* 0x91200024: j      91200024 # <trap>    */ 0x0000006f,
     };
 
     /* copy in the reset vector in little_endian byte order */
@@ -447,7 +442,7 @@ static void k230_machine_init(MachineState *machine)
                           memmap[K230_DEV_BOOTROM].base,
                           &address_space_memory);
 
-    riscv_rom_copy_firmware_info(machine, &s->soc.c908_cpus,
+    riscv_rom_copy_firmware_info(machine, &s->soc.c908_cpu,
                                  memmap[K230_DEV_BOOTROM].base,
                                  memmap[K230_DEV_BOOTROM].size,
                                  sizeof(reset_vec), 
@@ -460,14 +455,16 @@ static void k230_machine_class_init(ObjectClass *oc, const void *data)
     static const char *const cpu_types[] = {
       K230_C908_CPU, K230_C908V_CPU, NULL };
 
-    mc->desc = "RISC-V Board compatible with K230";
+    mc->desc = "RISC-V Board compatible with kendryte K230 SDK";
     mc->init = k230_machine_init;
+
     mc->max_cpus = 2;
     mc->valid_cpu_types = cpu_types;
-    mc->default_cpus = 1;
+
+    mc->default_cpus = 2;
     mc->default_cpu_type = K230_C908_CPU;
     mc->default_ram_id = "riscv.k230.ram";
-    mc->default_ram_size = 0x20000000;
+    mc->default_ram_size = k230_memmap[K230_DEV_DDRC].size;
 }
 
 static void k230_machine_instance_init(Object *obj)
@@ -499,27 +496,27 @@ static void k230_soc_instance_init(Object *obj)
 
     K230SoCState *s = RISCV_K230_SOC(obj);
 
-    object_initialize_child(obj, "c908-cpus", &s->c908_cpus,
+    object_initialize_child(obj, "c908-cpus", &s->c908_cpu,
                             TYPE_RISCV_HART_ARRAY);
-    qdev_prop_set_uint32(DEVICE(&s->c908_cpus), "num-harts",
+    qdev_prop_set_uint32(DEVICE(&s->c908_cpu), "num-harts",
                          1);
-    qdev_prop_set_uint32(DEVICE(&s->c908_cpus), "hartid-base",
-                         0);
-    qdev_prop_set_string(DEVICE(&s->c908_cpus), "cpu-type",
+    qdev_prop_set_uint32(DEVICE(&s->c908_cpu), "hartid-base",
+                         CPU0_BASE_HARTID);
+    qdev_prop_set_string(DEVICE(&s->c908_cpu), "cpu-type",
                          K230_C908_CPU);
-    qdev_prop_set_uint64(DEVICE(&s->c908_cpus), "resetvec",
+    qdev_prop_set_uint64(DEVICE(&s->c908_cpu), "resetvec",
                          k230_memmap[K230_DEV_BOOTROM].base);
 
     if (ms->smp.cpus == 2) {
-        object_initialize_child(obj, "c908v-cpus", &s->c908v_cpus,
+        object_initialize_child(obj, "c908v-cpus", &s->c908v_cpu,
                                 TYPE_RISCV_HART_ARRAY);
-        qdev_prop_set_uint32(DEVICE(&s->c908v_cpus),
+        qdev_prop_set_uint32(DEVICE(&s->c908v_cpu),
                              "num-harts", 1);
-        qdev_prop_set_uint32(DEVICE(&s->c908v_cpus),
-                             "hartid-base", 1);
-        qdev_prop_set_string(DEVICE(&s->c908v_cpus),
+        qdev_prop_set_uint32(DEVICE(&s->c908v_cpu),
+                             "hartid-base", CPU1_BASE_HARTID);
+        qdev_prop_set_string(DEVICE(&s->c908v_cpu),
                              "cpu-type", K230_C908V_CPU);
-        qdev_prop_set_uint64(DEVICE(&s->c908v_cpus), "resetvec",
+        qdev_prop_set_uint64(DEVICE(&s->c908v_cpu), "resetvec",
                              k230_memmap[K230_DEV_BOOTROM].base);
     }
 
@@ -538,32 +535,39 @@ static void k230_soc_realize(DeviceState *dev, Error **errp)
 {
     MachineState *ms = MACHINE(qdev_get_machine());
     K230SoCState *s = RISCV_K230_SOC(dev);
+    int num_harts = ms->smp.cpus;
+
     const MemMapEntry *memmap = k230_memmap;
     MemoryRegion *system_memory = get_system_memory();
-    MemoryRegion *mask_rom = g_new(MemoryRegion, 1);
     char *plic_hart_config;
 
     /* CPUs realize */
-    sysbus_realize(SYS_BUS_DEVICE(&s->c908_cpus), &error_fatal);
-    if (ms->smp.cpus == 2) {
-      sysbus_realize(SYS_BUS_DEVICE(&s->c908v_cpus),
-                     &error_fatal);
+    sysbus_realize(SYS_BUS_DEVICE(&s->c908_cpu), &error_fatal);
+    if (num_harts == 2) {
+        sysbus_realize(SYS_BUS_DEVICE(&s->c908v_cpu), &error_fatal);
     }
 
+    /* SRAM */
+    memory_region_init_ram(&s->sram, OBJECT(dev), "sram",
+                           memmap[K230_DEV_SRAM].size, &error_fatal);
+    memory_region_add_subregion(system_memory,
+                                memmap[K230_DEV_SRAM].base,
+                                &s->sram);
+
     /* boot rom */
-    memory_region_init_rom(mask_rom, OBJECT(dev), "bootrom",
+    memory_region_init_rom(&s->bootrom, OBJECT(dev), "bootrom",
                            memmap[K230_DEV_BOOTROM].size,
                            &error_fatal);
     memory_region_add_subregion(system_memory,
                                 memmap[K230_DEV_BOOTROM].base,
-                                mask_rom);
+                                &s->bootrom);
 
     /* create PLIC hart topology configuration string */
-    plic_hart_config = riscv_plic_hart_config_string(ms->smp.cpus);
+    plic_hart_config = riscv_plic_hart_config_string(num_harts);
 
     /* MMIO */
     s->plic = sifive_plic_create(memmap[K230_DEV_PLIC].base,
-        plic_hart_config, ms->smp.cpus, 0,
+        plic_hart_config, num_harts, CPU0_BASE_HARTID,
         K230_PLIC_NUM_SOURCES,
         K230_PLIC_NUM_PRIORITIES,
         K230_PLIC_PRIORITY_BASE,
@@ -576,51 +580,45 @@ static void k230_soc_realize(DeviceState *dev, Error **errp)
     g_free(plic_hart_config);
 
     /* 将 PLIC 输出连到两个 CPU 的 IRQ_M_EXT */
-    for (int hart = 0; hart < ms->smp.cpus; hart++) {
+    for (int hart = 0; hart < num_harts; hart++) {
         if (hart == 0) {
             qdev_connect_gpio_out(DEVICE(s->plic), hart,
-                qdev_get_gpio_in(DEVICE(&s->c908_cpus.harts[0]), 
+                qdev_get_gpio_in(DEVICE(&s->c908_cpu.harts[0]),
                 IRQ_M_EXT));
         } else if (hart == 1) {
             qdev_connect_gpio_out(
                 DEVICE(s->plic), hart,
-                qdev_get_gpio_in(DEVICE(&s->c908v_cpus.harts[0]),
+                qdev_get_gpio_in(DEVICE(&s->c908v_cpu.harts[0]),
                 IRQ_M_EXT));
         }
     }
 
-    /* clint */
     hwaddr clint_base = memmap[K230_DEV_CLINT].base;
     riscv_aclint_swi_create(
-        clint_base, 0, ms->smp.cpus, false);
+        clint_base, CPU0_BASE_HARTID, num_harts, false);
     riscv_aclint_mtimer_create(
         clint_base + RISCV_ACLINT_SWI_SIZE,
         RISCV_ACLINT_DEFAULT_MTIMER_SIZE,
-        0, ms->smp.cpus,
+        CPU0_BASE_HARTID, num_harts,
         RISCV_ACLINT_DEFAULT_MTIMECMP,
         RISCV_ACLINT_DEFAULT_MTIME,
-        K230_TIMEBASE_FREQ,
-        false);
+        K230_TIMEBASE_FREQ, /*fixme*/
+        true);
 
     /* UART */
     for (int i = 0; i < K230_UART_IRQS; i++) {
         hwaddr base = memmap[K230_DEV_UART0 + i].base;
         int uart_irq = K230_UART0_IRQ + i;
         serial_mm_init(system_memory, base, 2,
-                   qdev_get_gpio_in(DEVICE(s->plic), uart_irq),
-                   K230_FIX50M_FREQ, serial_hd(i),
-                   DEVICE_LITTLE_ENDIAN);
-        // sifive_uart_create(system_memory, base,
-        //     serial_hd(i), qdev_get_gpio_in(DEVICE(s->plic), uart_irq));
+                       qdev_get_gpio_in(DEVICE(s->plic), uart_irq),
+                       K230_FIX50M_FREQ, /*fixme*/
+                       serial_hd(i), DEVICE_LITTLE_ENDIAN);
     }
 
     /* other */
     create_unimplemented_device("kpu.l2-cache",
                                 memmap[K230_DEV_KPU_L2_CACHE].base,
                                 memmap[K230_DEV_KPU_L2_CACHE].size);
-
-    create_unimplemented_device("sram",
-        memmap[K230_DEV_SRAM].base, memmap[K230_DEV_SRAM].size);
 
     create_unimplemented_device("kpu_cfg",
                                 memmap[K230_DEV_KPU_CFG].base,
@@ -790,12 +788,12 @@ static void k230_soc_realize(DeviceState *dev, Error **errp)
         memmap[K230_DEV_SPI].base, memmap[K230_DEV_SPI].size);
 
     create_unimplemented_device("hi_sys_config",
-                                memmap[K230_DEV_HI_SYS_CONFIG].base,
-                                memmap[K230_DEV_HI_SYS_CONFIG].size);
+                                memmap[K230_DEV_HI_SYS_CFG].base,
+                                memmap[K230_DEV_HI_SYS_CFG].size);
 
     create_unimplemented_device("ddrc config",
-                                memmap[K230_DEV_DDRC_CONFIG].base,
-                                memmap[K230_DEV_DDRC_CONFIG].size);
+                                memmap[K230_DEV_DDRC_CFG].base,
+                                memmap[K230_DEV_DDRC_CFG].size);
 
     create_unimplemented_device("flash",
         memmap[K230_DEV_FLASH].base, memmap[K230_DEV_FLASH].size);

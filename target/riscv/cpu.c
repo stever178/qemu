@@ -3120,9 +3120,13 @@ static const TypeInfo riscv_cpu_type_infos[] = {
         .cfg.ext_zfh = true,
         .cfg.ext_xtheadfmv = true,
         .cfg.ext_xtheadfmemidx = true,
+        .cfg.pmp = true,
 
         .cfg.marchid = 0x8d143000,
         .cfg.mvendorid = THEAD_VENDOR_ID,
+#ifndef CONFIG_USER_ONLY
+        .custom_csrs = th_csr_list,
+#endif
     ),
 
     DEFINE_RISCV_CPU(TYPE_RISCV_CPU_THEAD_C908V, TYPE_RISCV_VENDOR_CPU,

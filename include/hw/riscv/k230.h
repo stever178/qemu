@@ -25,11 +25,14 @@
 #ifndef HW_K230_H
 #define HW_K230_H
 
-#include "hw/riscv/riscv_hart.h"
+#include "hw/boards.h"
+#include "hw/cpu/cluster.h"
 #include "hw/riscv/k230_cpu.h"
 #include "hw/gpio/sifive_gpio.h"
-/* #include "hw/misc/k230_rmu.h" */
-#include "hw/boards.h"
+#include "hw/riscv/riscv_hart.h"
+
+#define CPU0_BASE_HARTID   (0)
+#define CPU1_BASE_HARTID   (1)
 
 #define TYPE_RISCV_K230_SOC "riscv.k230.soc"
 #define RISCV_K230_SOC(obj) \
@@ -40,10 +43,13 @@ typedef struct K230SoCState {
     DeviceState parent_obj;
 
     /*< public >*/
-    RISCVHartArrayState c908_cpus;
-    RISCVHartArrayState c908v_cpus;
+    RISCVHartArrayState c908_cpu;
+    RISCVHartArrayState c908v_cpu;
 
+    MemoryRegion sram;
+    MemoryRegion bootrom;
     DeviceState *plic;
+
     DeviceState *clint;
     DeviceState uart[5];
     DeviceState i2c[5];
@@ -125,8 +131,8 @@ enum {
     K230_DEV_QSPI0,
     K230_DEV_QSPI1,
     K230_DEV_SPI,
-    K230_DEV_HI_SYS_CONFIG,
-    K230_DEV_DDRC_CONFIG,
+    K230_DEV_HI_SYS_CFG,
+    K230_DEV_DDRC_CFG,
     K230_DEV_FLASH,
     K230_DEV_PLIC,
     K230_DEV_CLINT,
@@ -155,15 +161,12 @@ enum {
     K230_RTCCLK_FREQ = 32768,      /* 32.768 kHz */
 };
 
-#define K230_PLIC_HART_CONFIG "MS,MS"
 #define K230_PLIC_NUM_SOURCES 208
-#define K230_PLIC_NUM_PRIORITIES 7  /* fixme */
-
+#define K230_PLIC_NUM_PRIORITIES 7
 #define K230_PLIC_PRIORITY_BASE 0x00
 #define K230_PLIC_PENDING_BASE 0x1000
 #define K230_PLIC_ENABLE_BASE 0x2000
 #define K230_PLIC_ENABLE_STRIDE 0x80
-
 #define K230_PLIC_CONTEXT_BASE 0x200000
 #define K230_PLIC_CONTEXT_STRIDE 0x1000
 
